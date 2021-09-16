@@ -2,8 +2,12 @@
   "name": "piiquante_apirest",
   "version": "1.0.0",
   "description": "An APIRest for Piiquante application, using Express.js",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "lint:fix": "eslint \"src/**/*.js\" --fix",
+    "lint": "eslint \"src/**/*.js\"",
+    "prettier": "prettier --write \"src/**/*.js\"",
+    "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +24,21 @@
   "bugs": {
     "url": "https://gitlab.com/openclassrooms10/webdevpath_p6/issues"
   },
-  "homepage": "https://gitlab.com/openclassrooms10/webdevpath_p6#readme"
+  "homepage": "https://gitlab.com/openclassrooms10/webdevpath_p6#readme",
+  "lint-staged": {
+    "*.{js,css,md}": [
+      "npm run prettier",
+      "npm run lint:fix",
+      "npm run lint"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1"
+  }
 }
