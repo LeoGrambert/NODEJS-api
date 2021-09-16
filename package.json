@@ -1,0 +1,24 @@
+{
+  "name": "piiquante_apirest",
+  "version": "1.0.0",
+  "description": "An APIRest for Piiquante application, using Express.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/openclassrooms10/webdevpath_p6.git"
+  },
+  "keywords": [
+    "api",
+    "express",
+    "node"
+  ],
+  "author": "Leo Grambert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/openclassrooms10/webdevpath_p6/issues"
+  },
+  "homepage": "https://gitlab.com/openclassrooms10/webdevpath_p6#readme"
+}
