@@ -1,13 +1,12 @@
 {
     "env": {
         "browser": true,
+        "node": true,
         "es2021": true
     },
     "extends": ["prettier", "eslint:recommended"],
-    "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
+    "parser": "@babel/eslint-parser",
+    "ignorePatterns": ["readme.MD"],
     "rules": {
         "indent": [
             "error",

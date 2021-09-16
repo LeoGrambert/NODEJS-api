@@ -1,1 +1,3 @@
-console.log('coucou');
+require('dotenv').config();
+
+console.log(process.env.ENV);

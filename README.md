@@ -6,12 +6,12 @@ An APIRest for Piiquante application, using Express.js
 
 Download this repository, then run:
 
- ```
-    npm install
- ```
+```
+   npm install
+```
 
- and
+and
 
- ```
-    node server
- ```
+```
+   npm run start
+```
