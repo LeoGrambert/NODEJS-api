@@ -8,10 +8,6 @@
     "parser": "@babel/eslint-parser",
     "ignorePatterns": ["readme.MD"],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
         "linebreak-style": [
             "error",
             "unix"
