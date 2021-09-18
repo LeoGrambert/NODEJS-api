@@ -1,5 +1,6 @@
 const http = require('http');
 const app = require('./app');
+const logger = require('./helpers/logger');
 
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
@@ -18,10 +19,10 @@ const errorHandler = (error) => {
   if (error.syscall !== 'listen') throw error;
   switch (error.code) {
     case 'EACCES':
-      console.error(`${bind} requires elevated privileges`);
+      logger.error(`${bind} requires elevated privileges`);
       break;
     case 'EADDRINUSE':
-      console.error(`${bind} is already in use.`);
+      logger.error(`${bind} is already in use.`);
       break;
     default:
       throw error;
@@ -31,7 +32,7 @@ const errorHandler = (error) => {
 
 server.on('error', errorHandler);
 server.on('listening', () => {
-  console.log('Listening on ' + bind);
+  logger.info('Listening on ' + bind);
 });
 
 server.listen(port);
