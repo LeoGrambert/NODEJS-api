@@ -6,12 +6,12 @@ An APIRest for marketplace application, using Express.js
 
 Download this repository, then run:
 
-```npm install
-
+```
+npm install
 ```
 
 and
 
-```npm run start
-
+```
+npm run start
 ```
