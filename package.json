@@ -1,30 +1,31 @@
 {
-  "name": "piiquante_apirest",
+  "name": "marketplace_api",
   "version": "1.0.0",
-  "description": "An APIRest for Piiquante application, using Express.js",
-  "main": "server.js",
+  "description": "An APIRest for marketplace application, using Express.js",
+  "main": "src/server.js",
   "scripts": {
     "lint:fix": "eslint \"src/**/*.js\" --fix",
     "lint": "eslint \"src/**/*.js\"",
     "prettier": "prettier --write \"src/**/*.js\"",
     "prepare": "husky install",
-    "start": "node src/server"
+    "start": "nodemon src/server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/openclassrooms10/webdevpath_p6.git"
+    "url": "git+https://github.com/LeoGrambert/NODEJS-api.git"
   },
   "keywords": [
     "api",
     "express",
-    "node"
+    "node",
+    "marketplace"
   ],
   "author": "Leo Grambert",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/openclassrooms10/webdevpath_p6/issues"
+    "url": "https://github.com/LeoGrambert/NODEJS-api/issues"
   },
-  "homepage": "https://gitlab.com/openclassrooms10/webdevpath_p6#readme",
+  "homepage": "https://github.com/LeoGrambert/NODEJS-api#readme",
   "lint-staged": {
     "*.{js,css,md}": [
       "npm run prettier",
