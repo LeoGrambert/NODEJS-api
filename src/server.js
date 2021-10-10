@@ -32,7 +32,7 @@ const errorHandler = (error) => {
 
 server.on('error', errorHandler);
 server.on('listening', () => {
-  logger.info('Listening on ' + bind);
+  logger.info(`Listening on ${bind}`);
 });
 
 server.listen(port);
