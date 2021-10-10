@@ -13,6 +13,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.json());
+
+app.post('/api/products', (req, res) => {
+  res.status(201).json({
+    message: req.body,
+  });
+});
+
 app.use('/api/products', (req, res) => {
   const products = [];
   res.status(200).json(products);
