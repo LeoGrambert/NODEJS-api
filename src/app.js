@@ -1,7 +1,20 @@
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
+const logger = require('./helpers/logger');
 
 const app = express();
+
+mongoose
+  .connect(
+    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PWD}@${process.env.MONGO_HOST}/myFirstDatabase?retryWrites=true&w=majority`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => logger.info('Connected to MongoDB'))
+  .catch(() => logger.error('MongoDB connection failure'));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_CORS);
