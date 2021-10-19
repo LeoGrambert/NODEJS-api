@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('./helpers/logger');
 const productRoutes = require('./routes/product');
+const userRoutes = require('./routes/user');
 
 const app = express();
 
@@ -30,5 +31,6 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use('/api/products', productRoutes);
+app.use('/api/auth', userRoutes);
 
 module.exports = app;
