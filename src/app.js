@@ -4,8 +4,11 @@ const mongoose = require('mongoose');
 const logger = require('./helpers/logger');
 const productRoutes = require('./routes/product');
 const userRoutes = require('./routes/user');
+const helmet = require('helmet');
 
 const app = express();
+
+app.use(helmet());
 
 mongoose
   .connect(
