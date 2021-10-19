@@ -1,10 +1,11 @@
 const Product = require('../models/product');
+const fs = require('fs');
 
 exports.createProduct = (req, res) => {
   const product = new Product({
     title: req.body.title,
     description: req.body.description,
-    imageUrl: req.body.imageUrl,
+    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
     price: req.body.price,
     userId: req.body.userId,
     reduction: req.body.reduction,
@@ -43,7 +44,7 @@ exports.modifyProduct = (req, res) => {
     _id: req.params.id,
     title: req.body.title,
     description: req.body.description,
-    imageUrl: req.body.imageUrl,
+    imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
     price: req.body.price,
     userId: req.body.userId,
     reduction: req.body.reduction,
@@ -63,17 +64,16 @@ exports.modifyProduct = (req, res) => {
 };
 
 exports.deleteProduct = (req, res) => {
-  Product.deleteOne({ _id: req.params.id })
-    .then(() => {
-      res.status(200).json({
-        message: 'Deleted!',
+  Product.findOne({ _id: req.params.id })
+    .then((product) => {
+      const filename = product.imageUrl.split('/images/')[1];
+      fs.unlink(`images/${filename}`, () => {
+        Product.deleteOne({ _id: req.params.id })
+          .then(() => res.status(200).json({ message: 'Deleted' }))
+          .catch((error) => res.status(400).json({ error }));
       });
     })
-    .catch((error) => {
-      res.status(400).json({
-        error: error,
-      });
-    });
+    .catch((error) => res.status(500).json({ error }));
 };
 
 exports.getProducts = (req, res) => {
